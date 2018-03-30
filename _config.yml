@@ -84,6 +84,4 @@ deploy:
 
 
 # comment support.
-duoshuo:
-  enable: true
-  shortname: your-duoshuo-shortname
+disqus_shortname: karellincoln
