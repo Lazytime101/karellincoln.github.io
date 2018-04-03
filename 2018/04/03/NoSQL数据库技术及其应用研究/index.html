@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="总结," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
-<meta name="keywords" content="总结">
+<meta name="description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式系统和数据库学习路线">
-<meta property="og:url" content="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/index.html">
+<meta property="og:title" content="NoSQL数据库技术及其应用研究">
+<meta property="og:url" content="https://karellincoln.github.io/2018/04/03/NoSQL数据库技术及其应用研究/index.html">
 <meta property="og:site_name" content="一只小小鸟">
-<meta property="og:description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
+<meta property="og:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-03T03:44:14.325Z">
+<meta property="og:updated_time" content="2018-04-03T12:49:31.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式系统和数据库学习路线">
-<meta name="twitter:description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
+<meta name="twitter:title" content="NoSQL数据库技术及其应用研究">
+<meta name="twitter:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/"/>
+  <link rel="canonical" href="https://karellincoln.github.io/2018/04/03/NoSQL数据库技术及其应用研究/"/>
 
 
 
 
 
-  <title>分布式系统和数据库学习路线 | 一只小小鸟</title>
+  <title>NoSQL数据库技术及其应用研究 | 一只小小鸟</title>
   
 
 
@@ -283,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/">
+    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/03/NoSQL数据库技术及其应用研究/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="karellincoln">
@@ -300,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分布式系统和数据库学习路线</h1>
+          <h1 class="post-title" itemprop="name headline">NoSQL数据库技术及其应用研究</h1>
         
 
         <div class="post-meta">
@@ -312,7 +311,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T09:53:14+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T14:55:38+08:00">
                 2018-04-03
               </time>
             
@@ -342,6 +341,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分布式/NoSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">NoSQL</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -353,9 +363,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/03/分布式系统和数据库学习路线/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/03/NoSQL数据库技术及其应用研究/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/03/分布式系统和数据库学习路线/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/03/NoSQL数据库技术及其应用研究/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,26 +393,88 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一路走来，很多巧合组合在一起。使得我现在在看分布式系统。</p>
-<p>大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。</p>
-<p>结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕设的时候有目标的选一些和分布式相关的项目。这时候刚好看到 《TiDB架构分析和简单应用》简单了解TiDB之后，觉得TiDB是一个很好的项目。也很满足自己现在想要学习分布式的一些理念。就选了这个作为我的毕设题目。</p>
+        <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。</p>
+<p>传统关系型数据库：</p>
+<table>
+<thead>
+<tr>
+<th>要求</th>
+<th>难题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事务一致性</td>
+<td>高并发读写</td>
+</tr>
+<tr>
+<td>读写实时性</td>
+<td>海量数据的高效率存储和访问</td>
+</tr>
+<tr>
+<td>复杂SQL查询</td>
+<td>高扩展性和可用性</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>欢迎各位对我的总结提出意见，如果觉得我有什么讲错的，讲的不好的，欢迎各位指出。我将不胜感激！</p>
+<p>在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。</p>
 </blockquote>
-<h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>在研究分布式数据库之前让我们先了解一些关系型数据的一些基本知识。使得我们理解分布式数据时有一个好的基础。</p>
-<blockquote>
-<p>汗颜，但我重新看《数据库系统概念》时，感觉自己好像之前完全没有学过这本书。</p>
+<h2 id="NoSQL-技术综述"><a href="#NoSQL-技术综述" class="headerlink" title="NoSQL 技术综述"></a>NoSQL 技术综述</h2><blockquote>
+<p>NoSQL 可以说是解决另外一种数据存储问题，它不需要保证事务的ACID特性，对读写的实时性也不做强要求。但是由于数据的规模大，对存储的可扩展性，高可用性和高并发读写有很大的要求。<br>第一节先介绍NoSQL的一个定义，可以具有一定的启发意义。引入CAP理论，说明鱼与熊掌不可兼得。为了高可用而放弃对事务的支持。<br>为了满足可扩展性，数据需要重新编码而不是用强耦合的表结构。使得数据可以按照一定的规则分布到不同的节点上。<br>为了满足高可用性，则需要多副本存储数据，那么保持数据的一致性的要求有哪些协议。</p>
 </blockquote>
-<p>下面我主要分SQL语句和事务两部分讲解。</p>
-<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>《数据库系统概念 原书第六版》</p>
-<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><p>以Google三驾马车开始:    </p>
+<h3 id="NoSQL-概念与特性"><a href="#NoSQL-概念与特性" class="headerlink" title="NoSQL 概念与特性"></a>NoSQL 概念与特性</h3><p>NoSQL定义：</p>
+<p>InfoSys Technologies 的首席技术架构师 Sourav Mazumder提出了非关系数据库的一个较为严谨的描述：   </p>
 <ol>
-<li>Google File System：<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-File-System%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>    <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf" target="_blank" rel="noopener">英文版</a></li>
-<li>Google MapReduce:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-MapReduce%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>    <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf" target="_blank" rel="noopener">英文版</a></li>
-<li>Google BigTable:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-Bigtable%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>     <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/bigtable-osdi06.pdf" target="_blank" rel="noopener">英文版</a></li>
+<li>使用可扩展的松耦合类型数据模式来对数据进行逻辑建模；</li>
+<li>为遵循CAP定理的跨多节点数据分布模型而设计，支持水平伸缩；</li>
+<li>拥有在磁盘和（或）内存中的数据持久化能力；</li>
+<li>支持多种接口来进行数据访问。</li>
 </ol>
-<h3 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/longxibendi/article/details/51288070" target="_blank" rel="noopener">Google三驾马车论文</a></p>
-<h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><h2 id="TiDB实现"><a href="#TiDB实现" class="headerlink" title="TiDB实现"></a>TiDB实现</h2>
+<p>NoSQL 因为对性能和可扩展性的要求而不支持事务机制，一般只提供对行级别的原子性的保证，即对于k-v对，只保证对一个key中的value的修改是原子性的。</p>
+<p>CAP理论：    </p>
+<ul>
+<li>一致性（Consistence） （等同于所有节点访问同一份最新的数据副本）</li>
+<li>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）</li>
+<li>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</li>
+</ul>
+<p>根据定理，分布式系统只能满足三项中的两项而不可能满足全部三项。P是分布式系统一定存在的现象，那只能在C和A之间选择一个。考虑这样的一个场景，为了保证C，那么各个数据节点的数据必须一致，那么当出现分区时，为了满足C。那么只能等待那个节点恢复之后才能提供服务。这样就不满足A了。</p>
+<blockquote>
+<p>现在觉得CAP定理已经基本上是一个理论了，由于Raft等一致性算法存在，使得只要大部分节点有用，就能使得系统有用。所以在满足C的情况下A也可以基本满足。那剩下的就是Raft等一致性算法对于性能的影响了</p>
+</blockquote>
+<p>根据CAP理论， NoSQL有两个层次的一致性：强一致性和最终一致性（存在不一致窗口）。</p>
+<h3 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h3><p>数据库的数据模型指的是数据在数据库中的组织方式，数据库的操作模型指的是存取这些数据的方式。</p>
+<ol>
+<li>k-v值得数据模型：<br> key-value存储<br> key-结构化数据存储：它将key-value存储中value的扩展为结构化的数据类型，包括数字、字符串、列表、集合以及有序集合。<br> key-文档存储：value是结构化文档，通常这些文档是被转换成JSON或类似JSON的结构进行存储。<br> BigTable的列式存储：列式存储可以这样理解，将行ID、列簇号、列号以及时间戳一起组成一个Key，然后<br>将Value按key的顺序进行存储。列存储中不同于行存储（上面的3个是行存储）。</li>
+<li>图结构数据模型</li>
+</ol>
+<h3 id="分布式扩展"><a href="#分布式扩展" class="headerlink" title="分布式扩展"></a>分布式扩展</h3><p>分布式的可扩展性，其实主要是数据要如何分布到不同的节点上。而访问时的负载均衡，各个节点中的数据比较均匀，添加节点和删除节点时的动态迁移。都是需要考虑的。</p>
+<p>而数据如何存储到不同节点上，在k-v的模型下还是很容易实现的：</p>
+<ol>
+<li>哈希分区<br> 最简单的h(key)mod(n)的值分布到n个节点中。</li>
+<li>范围分区<br> 为没有节点维护一个key的范围，将范围内的数据存到对应的节点中。</li>
+</ol>
+<blockquote>
+<p>范围分区是比哈希分区在实践中更好的一种分区方式，可以更好的达到数据的均衡分布和动态迁移。但是要维护更多的元数据信息。</p>
+</blockquote>
+<p>详细讲解见：<a href="http://www.cnblogs.com/xybaby/p/7076731.html" target="_blank" rel="noopener">带着问题学习分布式系统之数据分片</a></p>
+<h3 id="数据可靠性"><a href="#数据可靠性" class="headerlink" title="数据可靠性"></a>数据可靠性</h3><ol>
+<li>单机可靠性：写到磁盘，提升性能合并多个写，在flush下盘。</li>
+<li>多机可靠性：<br> 最简单的是主从数据同步的方式：所有在master上执行的操作，都会通过类似于操作日志的结构顺序地传递给slave上再执行一遍。若master宕机，slave可以继续执行完master传来的操作日志并且成为新的master。可能中间会导致一些数据丢失，因为master同步到是非阻塞的，并不知道操作是否已经完成。</li>
+</ol>
+<blockquote>
+<p>这样说raft也是主从数据同步的一种方式，只是保证了数据的强一致性，和故障的自动恢复。这两个就是分布式系统的两个想要实现性质和实现难点</p>
+</blockquote>
+<p>数据的可靠性是通过冗余数据保证的，上面的多机可靠性是异步同步复制（保证数据一致性的最弱的一个版本）。</p>
+<p>Paxos可以是一个去中心化的模型，不好实现。（性能也不好）现在主流的还是使用中心化副本控制协议。</p>
+<p>详细讲解见：<a href="http://www.cnblogs.com/xybaby/p/7153755.html" target="_blank" rel="noopener">带着问题学习分布式系统之中心化复制集</a></p>
+<h3 id="MongoDB-简介"><a href="#MongoDB-简介" class="headerlink" title="MongoDB 简介"></a>MongoDB 简介</h3><p>MongoDB 的设计定位是在具有key/value存储方式的高性能和高度扩展性的同时，具备传统的关系数据库管理系统的丰富功能，集两者的优势于一身，MongoDB使用数据结构松散的BSON格式，面向文档存储数据，使用自动分片(auto-sharding) 范围分区实现海量数据存储，支持全类型索引，使用的查询语言语法类似面向对象查询语言，可以实现类似关系数据库单表查询的绝大部分功能，支持主从和复制集（replica set) 两种数据复制机制</p>
+<blockquote>
+<p>replica set 是是一组数据库节点存储相同数据互作冗余，通过节点之间的数据同步和主节点选举提供故障自动转移和成员节点自动恢复。 可以使用raft一致性算法</p>
+</blockquote>
+<p>详细见：<a href="/2018/4/3/MongoDB存储与查询机制">MongoDB 存储与查询机制</a></p>
+<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>[1]沈姝. NoSQL数据库技术及其应用研究[D].南京信息工程大学,2012.<br><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">wiki cap定理</a><br>[3] CAP理论十二年回顾：”规则”变了. InfoQ.<br><a href="http://www.cnblogs.com/xybaby/p/7076731.html" target="_blank" rel="noopener">带着问题学习分布式系统之数据分片</a><br><a href="http://www.cnblogs.com/xybaby/p/7153755.html" target="_blank" rel="noopener">带着问题学习分布式系统之中心化复制集</a></p>
+
       
     </div>
     
@@ -446,12 +518,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/总结/" rel="tag"># 总结</a>
-          
-        </div>
-      
 
       
       
@@ -461,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/hexo部署与使用详解/" rel="next" title="hexo部署与使用入门">
-                <i class="fa fa-chevron-left"></i> hexo部署与使用入门
+              <a href="/2018/04/03/分布式系统和数据库学习路线/" rel="next" title="分布式系统和数据库学习路线">
+                <i class="fa fa-chevron-left"></i> 分布式系统和数据库学习路线
               </a>
             
           </div>
@@ -471,8 +537,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/03/NoSQL数据库技术及其应用研究/" rel="prev" title="NoSQL数据库技术及其应用研究">
-                NoSQL数据库技术及其应用研究 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/03/MongoDB存储与查询机制/" rel="prev" title="MongoDB存储与查询机制">
+                MongoDB存储与查询机制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -627,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系数据库"><span class="nav-number">2.</span> <span class="nav-text">关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.1.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">2.2.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">2.3.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式系统"><span class="nav-number">3.</span> <span class="nav-text">分布式系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献-1"><span class="nav-number">3.1.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式数据库"><span class="nav-number">4.</span> <span class="nav-text">分布式数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TiDB实现"><span class="nav-number">5.</span> <span class="nav-text">TiDB实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL-技术综述"><span class="nav-number">2.</span> <span class="nav-text">NoSQL 技术综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL-概念与特性"><span class="nav-number">2.1.</span> <span class="nav-text">NoSQL 概念与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型"><span class="nav-number">2.2.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式扩展"><span class="nav-number">2.3.</span> <span class="nav-text">分布式扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据可靠性"><span class="nav-number">2.4.</span> <span class="nav-text">数据可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-简介"><span class="nav-number">2.5.</span> <span class="nav-text">MongoDB 简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文件"><span class="nav-number">3.</span> <span class="nav-text">参考文件</span></a></li></ol></div>
             
 
           </div>
@@ -770,9 +836,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/';
-          this.page.identifier = '2018/04/03/分布式系统和数据库学习路线/';
-          this.page.title = '分布式系统和数据库学习路线';
+          this.page.url = 'https://karellincoln.github.io/2018/04/03/NoSQL数据库技术及其应用研究/';
+          this.page.identifier = '2018/04/03/NoSQL数据库技术及其应用研究/';
+          this.page.title = 'NoSQL数据库技术及其应用研究';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://karellincoln.disqus.com/embed.js';
