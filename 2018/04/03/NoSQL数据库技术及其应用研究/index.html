@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
+<meta name="description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NoSQL数据库技术及其应用研究">
 <meta property="og:url" content="https://karellincoln.github.io/2018/04/03/NoSQL数据库技术及其应用研究/index.html">
 <meta property="og:site_name" content="一只小小鸟">
-<meta property="og:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
+<meta property="og:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-03T12:49:31.436Z">
+<meta property="og:updated_time" content="2018-04-03T13:00:15.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NoSQL数据库技术及其应用研究">
-<meta name="twitter:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。  NoS">
+<meta name="twitter:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的">
 
 
 
@@ -418,7 +418,7 @@
 </tbody>
 </table>
 <blockquote>
-<p>在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求确是可以容忍的。</p>
+<p>在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的。</p>
 </blockquote>
 <h2 id="NoSQL-技术综述"><a href="#NoSQL-技术综述" class="headerlink" title="NoSQL 技术综述"></a>NoSQL 技术综述</h2><blockquote>
 <p>NoSQL 可以说是解决另外一种数据存储问题，它不需要保证事务的ACID特性，对读写的实时性也不做强要求。但是由于数据的规模大，对存储的可扩展性，高可用性和高并发读写有很大的要求。<br>第一节先介绍NoSQL的一个定义，可以具有一定的启发意义。引入CAP理论，说明鱼与熊掌不可兼得。为了高可用而放弃对事务的支持。<br>为了满足可扩展性，数据需要重新编码而不是用强耦合的表结构。使得数据可以按照一定的规则分布到不同的节点上。<br>为了满足高可用性，则需要多副本存储数据，那么保持数据的一致性的要求有哪些协议。</p>
@@ -431,14 +431,14 @@
 <li>拥有在磁盘和（或）内存中的数据持久化能力；</li>
 <li>支持多种接口来进行数据访问。</li>
 </ol>
-<p>NoSQL 因为对性能和可扩展性的要求而不支持事务机制，一般只提供对行级别的原子性的保证，即对于k-v对，只保证对一个key中的value的修改是原子性的。</p>
+<p>NoSQL 因为对性能和可扩展性的要求而不支持事务机制，一般只提供对行级别的原子性的保证不支持跨行更新的原子性，即对于k-v对，只保证对一个key中的value的修改是原子性的。</p>
 <p>CAP理论：    </p>
 <ul>
 <li>一致性（Consistence） （等同于所有节点访问同一份最新的数据副本）</li>
 <li>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）</li>
 <li>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</li>
 </ul>
-<p>根据定理，分布式系统只能满足三项中的两项而不可能满足全部三项。P是分布式系统一定存在的现象，那只能在C和A之间选择一个。考虑这样的一个场景，为了保证C，那么各个数据节点的数据必须一致，那么当出现分区时，为了满足C。那么只能等待那个节点恢复之后才能提供服务。这样就不满足A了。</p>
+<p>根据定理，分布式系统只能满足三项中的两项而不可能满足全部三项。P是分布式系统一定存在的现象，那只能在C和A之间选择一个。考虑这样的一个场景，为了保证C，那么各个数据节点的数据必须一致，一个节点更新数据之后，如果这时候出现了网络分区（P），这个更新就不能通知到所有的节点。为了满足C，那么只能等待那个分区节点恢复通讯之后，达到C才能提供服务。这样就不满足A了。</p>
 <blockquote>
 <p>现在觉得CAP定理已经基本上是一个理论了，由于Raft等一致性算法存在，使得只要大部分节点有用，就能使得系统有用。所以在满足C的情况下A也可以基本满足。那剩下的就是Raft等一致性算法对于性能的影响了</p>
 </blockquote>
@@ -449,7 +449,7 @@
 <li>图结构数据模型</li>
 </ol>
 <h3 id="分布式扩展"><a href="#分布式扩展" class="headerlink" title="分布式扩展"></a>分布式扩展</h3><p>分布式的可扩展性，其实主要是数据要如何分布到不同的节点上。而访问时的负载均衡，各个节点中的数据比较均匀，添加节点和删除节点时的动态迁移。都是需要考虑的。</p>
-<p>而数据如何存储到不同节点上，在k-v的模型下还是很容易实现的：</p>
+<p>数据如何存储到不同节点上，在k-v的模型下还是很容易实现的：</p>
 <ol>
 <li>哈希分区<br> 最简单的h(key)mod(n)的值分布到n个节点中。</li>
 <li>范围分区<br> 为没有节点维护一个key的范围，将范围内的数据存到对应的节点中。</li>
@@ -472,8 +472,8 @@
 <blockquote>
 <p>replica set 是是一组数据库节点存储相同数据互作冗余，通过节点之间的数据同步和主节点选举提供故障自动转移和成员节点自动恢复。 可以使用raft一致性算法</p>
 </blockquote>
-<p>详细见：<a href="/2018/4/3/MongoDB存储与查询机制">MongoDB 存储与查询机制</a></p>
-<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>[1]沈姝. NoSQL数据库技术及其应用研究[D].南京信息工程大学,2012.<br><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">wiki cap定理</a><br>[3] CAP理论十二年回顾：”规则”变了. InfoQ.<br><a href="http://www.cnblogs.com/xybaby/p/7076731.html" target="_blank" rel="noopener">带着问题学习分布式系统之数据分片</a><br><a href="http://www.cnblogs.com/xybaby/p/7153755.html" target="_blank" rel="noopener">带着问题学习分布式系统之中心化复制集</a></p>
+<p>详细见：<a href="/2018/04/03/MongoDB存储与查询机制">MongoDB 存储与查询机制</a></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1]沈姝. NoSQL数据库技术及其应用研究[D].南京信息工程大学,2012.<br><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">wiki cap定理</a><br>[3] CAP理论十二年回顾：”规则”变了. InfoQ.<br><a href="http://www.cnblogs.com/xybaby/p/7076731.html" target="_blank" rel="noopener">带着问题学习分布式系统之数据分片</a><br><a href="http://www.cnblogs.com/xybaby/p/7153755.html" target="_blank" rel="noopener">带着问题学习分布式系统之中心化复制集</a></p>
 
       
     </div>
@@ -645,7 +645,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -693,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL-技术综述"><span class="nav-number">2.</span> <span class="nav-text">NoSQL 技术综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL-概念与特性"><span class="nav-number">2.1.</span> <span class="nav-text">NoSQL 概念与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型"><span class="nav-number">2.2.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式扩展"><span class="nav-number">2.3.</span> <span class="nav-text">分布式扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据可靠性"><span class="nav-number">2.4.</span> <span class="nav-text">数据可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-简介"><span class="nav-number">2.5.</span> <span class="nav-text">MongoDB 简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文件"><span class="nav-number">3.</span> <span class="nav-text">参考文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL-技术综述"><span class="nav-number">2.</span> <span class="nav-text">NoSQL 技术综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL-概念与特性"><span class="nav-number">2.1.</span> <span class="nav-text">NoSQL 概念与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型"><span class="nav-number">2.2.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式扩展"><span class="nav-number">2.3.</span> <span class="nav-text">分布式扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据可靠性"><span class="nav-number">2.4.</span> <span class="nav-text">数据可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-简介"><span class="nav-number">2.5.</span> <span class="nav-text">MongoDB 简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
