@@ -94,15 +94,18 @@
 
 
 
+<meta name="description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
 <meta name="keywords" content="总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式系统和数据库学习路线">
 <meta property="og:url" content="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/index.html">
 <meta property="og:site_name" content="一只小小鸟">
+<meta property="og:description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-03T01:54:17.532Z">
+<meta property="og:updated_time" content="2018-04-03T03:06:06.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统和数据库学习路线">
+<meta name="twitter:description" content="背景一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
 
 
 
@@ -380,7 +383,24 @@
       
 
       
-        
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一路走来，很多巧合组合在一起。使得我现在在看分布式系统。</p>
+<p>大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。</p>
+<p>结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕设的时候有目标的选一些和分布式相关的项目。这时候刚好看到 《TiDB架构分析和简单应用》简单了解TiDB之后，觉得TiDB是一个很好的项目。也很满足自己现在想要学习分布式的一些理念。就选了这个作为我的毕设题目。</p>
+<blockquote>
+<p>欢迎各位对我的总结提出意见，如果觉得我有什么讲错的，讲的不好的，欢迎各位指出。我将不胜感激！</p>
+</blockquote>
+<h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>在研究分布式数据库之前让我们先了解一些关系型数据的一些基本知识。使得我们理解分布式数据时有一个好的基础。</p>
+<blockquote>
+<p>汗颜，但我重新看《数据库系统概念》时，感觉自己好像之前完全没有学过这本书。</p>
+</blockquote>
+<p>下面我主要分SQL语句和事务两部分讲解。</p>
+<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><p>以Google三驾马车开始:    </p>
+<ol>
+<li>Google File System：<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-File-System%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a><br><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf" target="_blank" rel="noopener">英文版</a></li>
+<li>Google MapReduce:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-MapReduce%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a><br><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf" target="_blank" rel="noopener">英文版</a></li>
+<li>Google BigTable:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-Bigtable%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a><br><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/bigtable-osdi06.pdf" target="_blank" rel="noopener">英文版</a></li>
+</ol>
+<h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><h2 id="TiDB实现"><a href="#TiDB实现" class="headerlink" title="TiDB实现"></a>TiDB实现</h2>
       
     </div>
     
@@ -506,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -582,6 +611,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系数据库"><span class="nav-number">2.</span> <span class="nav-text">关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.1.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">2.2.</span> <span class="nav-text">事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式系统"><span class="nav-number">3.</span> <span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式数据库"><span class="nav-number">4.</span> <span class="nav-text">分布式数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TiDB实现"><span class="nav-number">5.</span> <span class="nav-text">TiDB实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
