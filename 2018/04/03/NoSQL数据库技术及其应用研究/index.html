@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只小小鸟">
 <meta property="og:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-03T13:00:15.987Z">
+<meta property="og:updated_time" content="2018-04-04T08:09:25.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NoSQL数据库技术及其应用研究">
 <meta name="twitter:description" content="绪论互联网的快速发展使得数据量持续爆发式的增长。应用架构也由向上扩展（Scale-up，提高单机性能）向分布式，横向扩展（Scale-out）。 传统关系型数据库：    要求 难题     事务一致性 高并发读写   读写实时性 海量数据的高效率存储和访问   复杂SQL查询 高扩展性和可用性     在很多互联网业务中：传统关系型数据库面临的难题是必须要解决的，而要求的哪些内容又不是业务必须的">
@@ -113,7 +113,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -623,7 +623,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -745,6 +745,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     

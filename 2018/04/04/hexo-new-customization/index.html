@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="个人网站部署," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="前言写了几天的博客之后发现，连我自己都没有兴趣查看自己的博客。 觉得只给予自己那浅薄的markdown语法，和NexT官方的默认配置。继续写作是不行了。 而自己没有一点前端的知识背景，最近时间也比较紧能解决目前的需求就行了，没有深究进去。 下面的一些配置和文章中的写法主要参照：打造个性超赞博客Hexo+NexT+GithubPages的超深度优化 上面一篇的配置及其详细，阅读起来时间成本比较高。下">
+<meta name="keywords" content="个人网站部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo基于NexT主题订制自己的主题">
+<meta property="og:url" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/index.html">
+<meta property="og:site_name" content="一只小小鸟">
+<meta property="og:description" content="前言写了几天的博客之后发现，连我自己都没有兴趣查看自己的博客。 觉得只给予自己那浅薄的markdown语法，和NexT官方的默认配置。继续写作是不行了。 而自己没有一点前端的知识背景，最近时间也比较紧能解决目前的需求就行了，没有深究进去。 下面的一些配置和文章中的写法主要参照：打造个性超赞博客Hexo+NexT+GithubPages的超深度优化 上面一篇的配置及其详细，阅读起来时间成本比较高。下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/read.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/read.jpg">
+<meta property="og:updated_time" content="2018-04-04T10:46:40.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo基于NexT主题订制自己的主题">
+<meta name="twitter:description" content="前言写了几天的博客之后发现，连我自己都没有兴趣查看自己的博客。 觉得只给予自己那浅薄的markdown语法，和NexT官方的默认配置。继续写作是不行了。 而自己没有一点前端的知识背景，最近时间也比较紧能解决目前的需求就行了，没有深究进去。 下面的一些配置和文章中的写法主要参照：打造个性超赞博客Hexo+NexT+GithubPages的超深度优化 上面一篇的配置及其详细，阅读起来时间成本比较高。下">
+<meta name="twitter:image" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/read.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://karellincoln.github.io/2018/04/04/hexo-new-customization/"/>
+
+
+
+
+
+  <title>hexo基于NexT主题订制自己的主题 | 一只小小鸟</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一只小小鸟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/04/hexo-new-customization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="karellincoln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只小小鸟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo基于NexT主题订制自己的主题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T14:32:30+08:00">
+                2018-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/04/hexo-new-customization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/04/hexo-new-customization/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>写了几天的博客之后发现，连我自己都没有兴趣查看自己的博客。</p>
+<p>觉得只给予自己那浅薄的markdown语法，和NexT官方的默认配置。继续写作是不行了。</p>
+<p>而自己没有一点前端的知识背景，最近时间也比较紧能解决目前的需求就行了，没有深究进去。</p>
+<p>下面的一些配置和文章中的写法主要参照：<a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html" target="_blank" rel="noopener">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a></p>
+<p>上面一篇的配置及其详细，阅读起来时间成本比较高。下面总结出一些我认为我自己写博客的一些刚需，并给出相应的解决方案。</p>
+<p>部署与使用见上一篇：<a href="/2018/03/30/hexo部署与使用入门">hexo部署与使用入门</a></p>
+<h2 id="NexT-主题订制"><a href="#NexT-主题订制" class="headerlink" title="NexT 主题订制"></a>NexT 主题订制</h2><p>默认的主题，存在下面一下我不喜欢的配置，</p>
+<ol>
+<li>我使用Mist主题，其中首页中前十个网页是全量显示的其实我只想要显示简介就行了。</li>
+<li>网页之间没有之前没有明显的边界线，区分度不大。</li>
+<li>链接采用暗黑的风格，不明显。</li>
+<li>首页只能按照date排序，我想要自定义一些排序。</li>
+<li>hexo new 产生自己需要的默认配置</li>
+<li>markdown在网页中子标题和文本的区别度不大。</li>
+</ol>
+<p>解决方案：<br>问题2,3，6在 <code>themes/next/source/css/_custom/custom.styl</code> 中添加自己的配置。<br>配置如下：<a href="https://github.com/karellincoln/hexo-theme-next/blob/master/source/css/_custom/custom.styl" target="_blank" rel="noopener">我自己的配置</a></p>
+<p>问题1：<br><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Automatically Excerpt. Not recommend.</span><br><span class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line"><span class="deletion">-  enable: false</span></span><br><span class="line"><span class="addition">+  enable: true</span></span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure></p>
+<p>问题4：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载默认按照的插件，安装新的插件。</span></span><br><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure></p>
+<p>要排序文章只要在<code>Front-matter</code> 中 添加 top: num。<br>之后就可以按照num排序了。</p>
+<p>问题5：<br>更改<code>scaffolds/post.md</code> 文件，如下 <a href="https://github.com/karellincoln/karellincoln.github.io/blob/hexo/scaffolds/post.md" target="_blank" rel="noopener">post.md</a></p>
+<h2 id="markdown-进阶"><a href="#markdown-进阶" class="headerlink" title="markdown 进阶"></a>markdown 进阶</h2><ol>
+<li><p>代办列表：</p>
+ <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> [ ] 不勾选</span></span><br><span class="line"><span class="ruby">- [x] 勾选</span></span><br></pre></td></tr></table></figure>
+<p> 显示如下：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 不勾选</li>
+<li style="list-style: none"><input type="checkbox" checked> 勾选</li>
+</ul>
+</li>
+<li><p>字体编辑：*， _， ~</p>
+ <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">斜体： *斜体*  <span class="symbol">_</span>斜体<span class="symbol">_</span></span><br><span class="line">粗体： **粗体** <span class="symbol">__</span>粗体<span class="symbol">__</span></span><br><span class="line">删除线：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p> 显示如下：<br> 斜体： <em>斜体</em>  _斜体_<br> 粗体： <strong>粗体</strong> <strong>粗体</strong><br> 删除线：<del>删除线</del></p>
+</li>
+<li><p>插入自定义大小和布局的图片：<br> <code>&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot;&gt;&lt;/div&gt;</code><br> align 是怎么布局， height可以不加，给出width后根据原图自动计算。<br> 实例：</p>
+ <div align="center"><img src="read.jpg" width="150"></div>
+
+<p> 图片和文字混排：</p>
+ <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">"read.jpg"</span> <span class="attribute">align</span>=<span class="string">"right"</span>&gt;</span><br><span class="line">这是一个示例图片。</span><br><span class="line">图片显示在 N 段文字的右边。</span><br><span class="line">N 与图片高度有关。</span><br><span class="line">刷屏行。</span><br><span class="line">刷屏行。</span><br><span class="line">到这里应该不会受影响了，本行应该延伸到了图片的正下方，所以我要足够长才能确保不同的屏幕下都看到效果。</span><br></pre></td></tr></table></figure>
+<p> 显示如下：<br> <img src="read.jpg" align="right"><br> 这是一个示例图片。<br> 图片显示在 N 段文字的右边。<br> N 与图片高度有关。<br> 刷屏行。<br> 刷屏行。<br> 到这里应该不会受影响了，本行应该延伸到了图片的正下方，所以我要足够长才能确保不同的屏幕下都看到效果。</p>
+</li>
+</ol>
+<h2 id="有效的写作样式"><a href="#有效的写作样式" class="headerlink" title="有效的写作样式"></a>有效的写作样式</h2><h3 id="主题自带样式-代码块高亮"><a href="#主题自带样式-代码块高亮" class="headerlink" title="主题自带样式 代码块高亮"></a>主题自带样式 代码块高亮</h3><p>先看效果：<br><figure class="highlight diff"><figcaption><span>文件位置：~/blog</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @author John Smith &lt;john.smith@example.com&gt;</span><br><span class="line">*/</span><br><span class="line">package l2f.gameserver.model;</span><br><span class="line"></span><br><span class="line">public abstract class L2Char extends L2Object &#123;</span><br><span class="line">  public static final Short ERROR = 0x0001;</span><br><span class="line"></span><br><span class="line">  public void moveTo(int x, int y, int z) &#123;</span><br><span class="line">    _ai = null;</span><br><span class="line"><span class="deletion">-    log("Should not be called");</span></span><br><span class="line"><span class="addition">+    if (1 &gt; 5) &#123; // wtf!?</span></span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\`\`\` <span class="string">[language]</span> <span class="string">[title]</span> <span class="string">[url]</span> <span class="string">[link-text]</span></span><br><span class="line">代码</span><br><span class="line">\`\`\`</span><br><span class="line"></span><br><span class="line">* <span class="string">[language]</span> 是代码语言的名称，用来设置代码块颜色高亮，非必须；</span><br><span class="line">* <span class="string">[title]</span> 是顶部左边的说明，非必须；</span><br><span class="line">* <span class="string">[url]</span> 是顶部右边的超链接地址，非必须；</span><br><span class="line">* <span class="string">[link text]</span> 如它的字面意思，超链接的名称，非必须。</span><br></pre></td></tr></table></figure>
+<p>在 ``` 后面可以添加diff，然后用-，+辨识代码的修改。</p>
+<p>自定义自己的顶部文字样式：</p>
+<figure class="highlight styl"><figcaption><span>文件位置：~/blog/themes/next/source/css/_custom/custom.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文章```代码块顶部样式</span></span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-tag">figcaption</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0em</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0.5em</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#e9e9e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-tag">figcaption</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: rgb(<span class="number">80</span>, <span class="number">115</span>, <span class="number">184</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="主题自带样式-文本居中引用"><a href="#主题自带样式-文本居中引用" class="headerlink" title="主题自带样式 文本居中引用"></a>主题自带样式 文本居中引用</h3><p>源码：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">cq</span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">人生乃是一面镜子，</span></span><br><span class="line"><span class="xml">从镜子里认识自己，</span></span><br><span class="line"><span class="xml">我要称之为头等大事，</span></span><br><span class="line"><span class="xml">也只是我们追求的目的！</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">endcq</span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<p>效果：<br><blockquote class="blockquote-center"><p>人生乃是一面镜子，<br>从镜子里认识自己，<br>我要称之为头等大事，<br>也只是我们追求的目的！</p>
+</blockquote></p>
+<p>更多 NexT 主题自带的标签样式，请点击：<a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/tag-plugins.html</a></p>
+<h3 id="主题自带样式-note标签"><a href="#主题自带样式-note标签" class="headerlink" title="主题自带样式 note标签"></a>主题自带样式 note标签</h3><p>源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note default"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>default<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note primary"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>primary<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note success"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>success<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note info"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>info<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note warning"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>warning<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note danger"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>danger<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note danger no-icon"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>danger no-icon<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<div class="note default"><p>default</p></div><br><div class="note primary"><p>primary</p></div><br><div class="note success"><p>success</p></div><br><div class="note info"><p>info</p></div><br><div class="note warning"><p>warning</p></div><br><div class="note danger"><p>danger</p></div><br><div class="note danger no-icon"><p>danger no-icon</p></div>
+
+<p>增强显示效果，在config文件中配置：<br><figure class="highlight yml"><figcaption><span>文件位置：~/blog/themes/next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Note tag (bs-callout).</span></span><br><span class="line"><span class="attr">note:</span></span><br><span class="line">  <span class="comment"># 风格</span></span><br><span class="line"><span class="attr">  style:</span> <span class="string">flat</span></span><br><span class="line">  <span class="comment"># 要不要图标</span></span><br><span class="line"><span class="attr">  icons:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 圆角矩形</span></span><br><span class="line"><span class="attr">  border_radius:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  light_bg_offset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="主题自带样式-label标签"><a href="#主题自带样式-label标签" class="headerlink" title="主题自带样式 label标签"></a>主题自带样式 label标签</h3><p>源码：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">label</span><span class="bash"> default@默认 %&#125;</span></span><br><span class="line"><span class="bash">&#123;% label primary@主要 颜色 %&#125;</span></span><br><span class="line"><span class="bash">&#123;% label success@成功%&#125;</span></span><br><span class="line"><span class="bash">&#123;% label info @ 消息%&#125;</span></span><br><span class="line"><span class="bash">&#123;%label warning@警告%&#125;</span></span><br><span class="line"><span class="bash">&#123;% label danger@danger %&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果：<br><span class="label default">默认</span><br><span class="label primary">主要 颜色</span><br><span class="label success">成功</span><br><span class="label info"> 消息</span><br><span class="label warning">警告</span><br><span class="label danger">danger</span></p>
+<h3 id="自定义样式-引用"><a href="#自定义样式-引用" class="headerlink" title="自定义样式 引用"></a>自定义样式 引用</h3><p>在custom.styl中加入了<br><figure class="highlight styl"><figcaption><span>文件位置：~/blog/themes/next/source/css/_custom/custom.styl</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义的引用样式</span></span><br><span class="line"><span class="selector-tag">blockquote</span><span class="selector-class">.question</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid rgb(<span class="number">16</span>, <span class="number">152</span>, <span class="number">173</span>);</span><br><span class="line">    <span class="attribute">background-color</span>: rgb(<span class="number">227</span>, <span class="number">242</span>, <span class="number">253</span>);</span><br><span class="line">    <span class="attribute">border-top-right-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">border-bottom-right-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现下面代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">"question"</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<blockquote class="question">内容</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="karellincoln WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="karellincoln Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/个人网站部署/" rel="tag"># 个人网站部署</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/03/MongoDB存储与查询机制/" rel="next" title="MongoDB存储与查询机制">
+                <i class="fa fa-chevron-left"></i> MongoDB存储与查询机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="karellincoln" />
+          <p class="site-author-name" itemprop="name">karellincoln</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/karellincoln" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-https://github.com/karellincoln"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT-主题订制"><span class="nav-number">2.</span> <span class="nav-text">NexT 主题订制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-进阶"><span class="nav-number">3.</span> <span class="nav-text">markdown 进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有效的写作样式"><span class="nav-number">4.</span> <span class="nav-text">有效的写作样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题自带样式-代码块高亮"><span class="nav-number">4.1.</span> <span class="nav-text">主题自带样式 代码块高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题自带样式-文本居中引用"><span class="nav-number">4.2.</span> <span class="nav-text">主题自带样式 文本居中引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题自带样式-note标签"><span class="nav-number">4.3.</span> <span class="nav-text">主题自带样式 note标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题自带样式-label标签"><span class="nav-number">4.4.</span> <span class="nav-text">主题自带样式 label标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义样式-引用"><span class="nav-number">4.5.</span> <span class="nav-text">自定义样式 引用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">karellincoln</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://karellincoln.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://karellincoln.github.io/2018/04/04/hexo-new-customization/';
+          this.page.identifier = '2018/04/04/hexo-new-customization/';
+          this.page.title = 'hexo基于NexT主题订制自己的主题';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://karellincoln.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

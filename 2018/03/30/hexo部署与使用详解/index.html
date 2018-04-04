@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="一只小小鸟">
 <meta property="og:description" content="背景一直想要有一个自己的博客，简约而清晰。但一开始苦于没有合适的平台，就一直没有搭建。最近在找资料的时候经常看到我这个模板的网站，就google了一下，开始了自己搭建网站之路。     github pages 提供了服务器，hexo提供了博客框架  Github Pages 是什么 如果你对编程有所了解，就一定听说过github。它号称程序员的Facebook，有着极高的人气，许多重要的项目都托">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T06:25:18.361Z">
+<meta property="og:updated_time" content="2018-04-04T10:43:27.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo部署与使用入门">
 <meta name="twitter:description" content="背景一直想要有一个自己的博客，简约而清晰。但一开始苦于没有合适的平台，就一直没有搭建。最近在找资料的时候经常看到我这个模板的网站，就google了一下，开始了自己搭建网站之路。     github pages 提供了服务器，hexo提供了博客框架  Github Pages 是什么 如果你对编程有所了解，就一定听说过github。它号称程序员的Facebook，有着极高的人气，许多重要的项目都托">
@@ -114,7 +114,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -405,7 +405,7 @@
 <ol>
 <li>按照 hexo-deployer-git:<br> <code>npm install hexo-deployer-git --save</code></li>
 <li><p>修改 _config.yml 中的 deploy参数：<br> 如下：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git </span><br><span class="line">repo: git@github.com:karellincoln/karellincoln.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+ <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line"><span class="attribute">type</span>: git </span><br><span class="line"><span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:karellincoln/karellincoln.github.io.git</span><br><span class="line"><span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 <p> 具体参数看hexo官方文档。</p>
 </li>
 </ol>
@@ -423,7 +423,7 @@
 <li><p>更改网址主题：如上2</p>
 </li>
 <li><p>开启评论：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Disqus</span><br><span class="line">disqus:</span><br><span class="line">  enable: true</span><br><span class="line">  shortname: karellincoln</span><br><span class="line">  count: true</span><br></pre></td></tr></table></figure>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Disqus</span></span><br><span class="line"><span class="attr">disqus:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  shortname:</span> <span class="string">karellincoln</span></span><br><span class="line"><span class="attr">  count:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加tags 和 categories(标签和目录)：   </p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
@@ -448,7 +448,7 @@
 </ol>
 <h2 id="使用markdown和一些有用的标签插件"><a href="#使用markdown和一些有用的标签插件" class="headerlink" title="使用markdown和一些有用的标签插件"></a>使用markdown和一些有用的标签插件</h2><ol>
 <li><p>Front-matter<br>Front-matter 是文件最上方以 <code>---</code>分隔的区域，用于指定个别文件的变量，举例来说：   </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">date: 2013/7/13 20:46:25</span><br><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">- Life</span><br><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
+ <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">date: 2013/7/13 20:46:25</span><br><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">- Life</span><br><span class="line"><span class="keyword">tags:</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
 <p> 其中tags标签下的 PS3 和Games是平级的，但是categories 下的Diary和Life是有层级的相当于Diary/Life目录下。</p>
 </li>
 <li><p>我觉得有一个经常可能需要用到的一个，引用自己其他篇文章，能不能直接引用当前文件夹的title.md文件呢？<br> 结果发现不可以！！！！<br> 需要采用 <code>/year/month/day/title</code> 的方式引用自己的文章。     </p>
@@ -515,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/03/30/hello-world/" rel="next" title="Hexo Hello World">
+                <i class="fa fa-chevron-left"></i> Hexo Hello World
               </a>
             
           </div>
@@ -611,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -733,6 +733,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
