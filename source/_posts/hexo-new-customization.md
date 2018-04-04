@@ -206,7 +206,14 @@ public abstract class L2Char extends L2Object {
 
 效果：
 <div class="note default"><p>default</p></div>
-<div class="note primary"><p>primary</p></div>
+<div class="note primary"><p>
+    <ol><li> helloword </li>
+        this is a link : [link](http://theme-next.iissnan.com/tag-plugins.html)
+        `hello` teset
+        **hello**
+    <li> test </li>
+        I don't know what I want to say.</ol>
+</p></div>
 <div class="note success"><p>success</p></div>
 <div class="note info"><p>info</p></div>
 <div class="note warning"><p>warning</p></div>
