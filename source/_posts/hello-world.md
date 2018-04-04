@@ -1,5 +1,5 @@
 ---
-title: Hello World
+title: Hexo Hello World
 date: 2018-03-30 10:27:50
 categories:
 - Hexo

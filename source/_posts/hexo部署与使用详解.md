@@ -1,6 +1,7 @@
 ---
 title: hexo部署与使用入门
 date: 2018-03-30 11:25:31
+top: 1
 categories:
 - Hexo
 tags:
