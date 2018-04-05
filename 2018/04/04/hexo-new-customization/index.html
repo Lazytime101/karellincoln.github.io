@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/read.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/04/hexo-new-customization/read.jpg">
-<meta property="og:updated_time" content="2018-04-04T10:46:40.979Z">
+<meta property="og:updated_time" content="2018-04-04T13:46:02.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo基于NexT主题订制自己的主题">
 <meta name="twitter:description" content="前言写了几天的博客之后发现，连我自己都没有兴趣查看自己的博客。 觉得只给予自己那浅薄的markdown语法，和NexT官方的默认配置。继续写作是不行了。 而自己没有一点前端的知识背景，最近时间也比较紧能解决目前的需求就行了，没有深究进去。 下面的一些配置和文章中的写法主要参照：打造个性超赞博客Hexo+NexT+GithubPages的超深度优化 上面一篇的配置及其详细，阅读起来时间成本比较高。下">
@@ -439,7 +439,7 @@
 <p>更多 NexT 主题自带的标签样式，请点击：<a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/tag-plugins.html</a></p>
 <h3 id="主题自带样式-note标签"><a href="#主题自带样式-note标签" class="headerlink" title="主题自带样式 note标签"></a>主题自带样式 note标签</h3><p>源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note default"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>default<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note primary"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>primary<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note success"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>success<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note info"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>info<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note warning"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>warning<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note danger"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>danger<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"note danger no-icon"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>danger no-icon<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>效果：</p>
-<div class="note default"><p>default</p></div><br><div class="note primary"><p>primary</p></div><br><div class="note success"><p>success</p></div><br><div class="note info"><p>info</p></div><br><div class="note warning"><p>warning</p></div><br><div class="note danger"><p>danger</p></div><br><div class="note danger no-icon"><p>danger no-icon</p></div>
+<div class="note default"><p>default</p></div><br><div class="note primary"><p><br>    <ol><li> helloword </li><br>        this is a link : <a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="noopener">link</a><br>        <code>hello</code> teset<br>        <strong>hello</strong><br>    <li> test </li><br>        I don’t know what I want to say.</ol><br></p></div><br><div class="note success"><p>success</p></div><br><div class="note info"><p>info</p></div><br><div class="note warning"><p>warning</p></div><br><div class="note danger"><p>danger</p></div><br><div class="note danger no-icon"><p>danger no-icon</p></div>
 
 <p>增强显示效果，在config文件中配置：<br><figure class="highlight yml"><figcaption><span>文件位置：~/blog/themes/next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Note tag (bs-callout).</span></span><br><span class="line"><span class="attr">note:</span></span><br><span class="line">  <span class="comment"># 风格</span></span><br><span class="line"><span class="attr">  style:</span> <span class="string">flat</span></span><br><span class="line">  <span class="comment"># 要不要图标</span></span><br><span class="line"><span class="attr">  icons:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 圆角矩形</span></span><br><span class="line"><span class="attr">  border_radius:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  light_bg_offset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="主题自带样式-label标签"><a href="#主题自带样式-label标签" class="headerlink" title="主题自带样式 label标签"></a>主题自带样式 label标签</h3><p>源码：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">label</span><span class="bash"> default@默认 %&#125;</span></span><br><span class="line"><span class="bash">&#123;% label primary@主要 颜色 %&#125;</span></span><br><span class="line"><span class="bash">&#123;% label success@成功%&#125;</span></span><br><span class="line"><span class="bash">&#123;% label info @ 消息%&#125;</span></span><br><span class="line"><span class="bash">&#123;%label warning@警告%&#125;</span></span><br><span class="line"><span class="bash">&#123;% label danger@danger %&#125;</span></span><br></pre></td></tr></table></figure></p>
@@ -516,6 +516,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/04/normal-form/" rel="prev" title="关系型数据库之范式">
+                关系型数据库之范式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -599,7 +603,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -610,7 +614,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -621,7 +625,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

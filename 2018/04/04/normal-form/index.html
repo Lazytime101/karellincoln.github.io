@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="总结," />
+  <meta name="keywords" content="范式," />
 
 
 
@@ -94,18 +94,26 @@
 
 
 
-<meta name="description" content="前言一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
-<meta name="keywords" content="总结">
+<meta name="description" content="关系数据库设计的目标是生成一组关系模式使我们存储信息时避免不必要的冗余，并且让我们可以方便地获取信息。这是通过设计满足适当范式（normal form）的模式来实现的。">
+<meta name="keywords" content="范式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式系统和数据库学习路线">
-<meta property="og:url" content="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/index.html">
+<meta property="og:title" content="关系型数据库之范式">
+<meta property="og:url" content="https://karellincoln.github.io/2018/04/04/normal-form/index.html">
 <meta property="og:site_name" content="一只小小鸟">
-<meta property="og:description" content="前言一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
+<meta property="og:description" content="关系数据库设计的目标是生成一组关系模式使我们存储信息时避免不必要的冗余，并且让我们可以方便地获取信息。这是通过设计满足适当范式（normal form）的模式来实现的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T10:46:32.208Z">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/multivalued-dependency.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/multivalued-dependency-analy.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/BCNF.png">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/canonical-cover.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/BCNF-algorithm.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/3NF.jpg">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/04/normal-form/3NF-algorithm.jpg">
+<meta property="og:updated_time" content="2018-04-05T07:28:03.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式系统和数据库学习路线">
-<meta name="twitter:description" content="前言一路走来，很多巧合组合在一起。使得我现在在看分布式系统。 大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。 结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕">
+<meta name="twitter:title" content="关系型数据库之范式">
+<meta name="twitter:description" content="关系数据库设计的目标是生成一组关系模式使我们存储信息时避免不必要的冗余，并且让我们可以方便地获取信息。这是通过设计满足适当范式（normal form）的模式来实现的。">
+<meta name="twitter:image" content="https://karellincoln.github.io/2018/04/04/normal-form/multivalued-dependency.jpg">
 
 
 
@@ -134,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/"/>
+  <link rel="canonical" href="https://karellincoln.github.io/2018/04/04/normal-form/"/>
 
 
 
 
 
-  <title>分布式系统和数据库学习路线 | 一只小小鸟</title>
+  <title>关系型数据库之范式 | 一只小小鸟</title>
   
 
 
@@ -283,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/">
+    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/04/normal-form/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="karellincoln">
@@ -300,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分布式系统和数据库学习路线</h1>
+          <h1 class="post-title" itemprop="name headline">关系型数据库之范式</h1>
         
 
         <div class="post-meta">
@@ -312,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T09:53:14+08:00">
-                2018-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T22:37:10+08:00">
+                2018-04-04
               </time>
             
 
@@ -342,6 +350,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分布式/关系型数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">关系型数据库</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -353,9 +372,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/03/分布式系统和数据库学习路线/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/04/normal-form/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/03/分布式系统和数据库学习路线/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/04/normal-form/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,26 +402,48 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一路走来，很多巧合组合在一起。使得我现在在看分布式系统。</p>
-<p>大二时因为需要创新学分，就申报了《可重复数据删除系统》的srp项目。觉得是因为这个项目，在面试华为实习时，被分到了华为的Cloudfs项目组，算是进入了云计算这个领域。在这个项目中接触了docker容器，cicd，文件系统等开发知识。</p>
-<p>结束实习之后为了以后能够更好的在项目组中发展，觉得有必要好好的学习一下分布式系统相关的知识。所以在选毕设的时候有目标的选一些和分布式相关的项目。这时候刚好看到 《TiDB架构分析和简单应用》简单了解TiDB之后，觉得TiDB是一个很好的项目。也很满足自己现在想要学习分布式的一些理念。就选了这个作为我的毕设题目。</p>
-<blockquote>
-<p>欢迎各位对我的总结提出意见，如果觉得我有什么讲错的，讲的不好的，欢迎各位指出。我将不胜感激！</p>
-</blockquote>
-<h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>在研究分布式数据库之前让我们先了解一些关系型数据的一些基本知识。使得我们理解分布式数据时有一个好的基础。</p>
-<blockquote>
-<p>汗颜，但我重新看《数据库系统概念》时，感觉自己好像之前完全没有学过这本书。</p>
-</blockquote>
-<p>下面我主要分SQL语句和事务两部分讲解。</p>
-<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>《数据库系统概念 原书第六版》</p>
-<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><p>以Google三驾马车开始:    </p>
+        <div class="note info"><p>关系数据库设计的目标是生成一组关系模式<br>使我们存储信息时避免不必要的冗余，并且让我们可以方便地获取信息。<br>这是通过设计满足适当范式（normal form）的模式来实现的。</p></div>
+
+<a id="more"></a>
+<h2 id="好的关系设计的特点"><a href="#好的关系设计的特点" class="headerlink" title="好的关系设计的特点"></a>好的关系设计的特点</h2><p>一开始的表一般都是比较大的，因为人是懒惰的喜欢不加思索的将很多属性放到一起，而形成一张大表。</p>
+<div class="note default"><p>举例：表A(a,a1,b)和表B(b, b1)是一对多的关系，分别有主码a和b。<br>如果现在将AB连接成一张大表A-B(a,a1,b,b1)。那么A-B将有大量的冗余的b1属性值。</p></div>
+
+<p>而这样的设计会带来什么呢？</p>
 <ol>
-<li>Google File System：<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-File-System%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>    <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf" target="_blank" rel="noopener">英文版</a></li>
-<li>Google MapReduce:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-MapReduce%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>    <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf" target="_blank" rel="noopener">英文版</a></li>
-<li>Google BigTable:<br><a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-Bigtable%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">中文版</a>     <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/bigtable-osdi06.pdf" target="_blank" rel="noopener">英文版</a></li>
+<li>冗余的b1信息，增加了存储，而且当要修改一个b所对应的b1值的时候会需要修改多行。这样的就要保证更复杂的事务原子性。</li>
+<li>使用A-B表，当要添加一个新的(b, b1)对时，由于没有A与之对应，这时就要处理空值问题了。</li>
 </ol>
-<h3 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/longxibendi/article/details/51288070" target="_blank" rel="noopener">Google三驾马车论文</a></p>
-<h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><h2 id="TiDB实现"><a href="#TiDB实现" class="headerlink" title="TiDB实现"></a>TiDB实现</h2>
+<h3 id="那什么样的表需要分解呢？"><a href="#那什么样的表需要分解呢？" class="headerlink" title="那什么样的表需要分解呢？"></a>那什么样的表需要分解呢？</h3><ul>
+<li>函数依赖(functional dependency)：如果存在模式（b，b1），其中b可以作为主码。则存在<code>b--&gt;b1</code>的函数依赖关系</li>
+<li>多值依赖(multivalued dependency): 比较难直接讲清楚。<br>  <img src="multivalued-dependency.jpg" alt="定义"><br>  直观的说是a和b之间的关系独立于a和R-b之间的关系<br>  <img src="multivalued-dependency-analy.jpg" alt="解析"><br>  可以认识到函数依赖是多值依赖的一种特殊情况，如果其中的一个关系是一对一的(即每一个a只有一个b或c与之对应)。<br>  根据多值依赖的分解满足无损分解。</li>
+</ul>
+<p>任何一个函数依赖都是一个多值依赖。<br>一个表关系中存在不合理的函数依赖和多值依赖就是需要分解的。</p>
+<h3 id="如何判断分解的好坏呢？"><a href="#如何判断分解的好坏呢？" class="headerlink" title="如何判断分解的好坏呢？"></a>如何判断分解的好坏呢？</h3><ul>
+<li>有损分解(lossy decomposition)和无损分解(lossless decomposition)：有损分解是指将一个大表分解之后再使用自然连接所形成的表增加了一些元组，使得原来的一些对应关系丢失了。反之称为无损分解。</li>
+<li>保持依赖(dependency preservation): 一个函数依赖同时也可以理解成为一个关系约束，如果关系模式中能够高效地检查这些约束是很有用的，称这个关系模式是保持依赖的。</li>
+</ul>
+<p>有损分解是表的分解<span class="label primary">必须</span>要保证的，但是保持依赖可以看情况，有时候可以通过<span class="label primary">物化视图</span>高效的检查（但是也不是很高效）</p>
+<h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><p>有了上面的知识之后，理解范式就变成能简单了。</p>
+<h3 id="第一范式-1NF"><a href="#第一范式-1NF" class="headerlink" title="第一范式 1NF"></a>第一范式 1NF</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>一个域是原子的(atomic)， 如果该域的元素被认为是不可分割的单元。我们称一个关系模型R属于第一范式，如果R的所有属性的域都是原子的。</p>
+<h4 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h4><p>原子的，是关系模型设计者的思想，在实现方面认为可以由<span class="label primary">固定的空间</span>表示而不是固定空间的集合或组合。<br>非原子的域主要和组合属性（嵌套关系）和多值属性（包含值得集合）：这些在表达上可能会更清晰一些但是都是不好的关系模型（产生冗余和修改的困难），SQL语句也不支持这种语法。</p>
+<h3 id="Boyce-Codd-范式"><a href="#Boyce-Codd-范式" class="headerlink" title="Boyce-Codd 范式"></a>Boyce-Codd 范式</h3><h4 id="定义：-1"><a href="#定义：-1" class="headerlink" title="定义："></a>定义：</h4><p><img src="BCNF.png" alt="定义"></p>
+<h4 id="理解：-1"><a href="#理解：-1" class="headerlink" title="理解："></a>理解：</h4><p>根据我们分解关系表的最直接的要求，可以得到如果一个非平凡函数依赖中的a不是模式R的超码时，会产生多余的冗余信息。</p>
+<p>但是这样的实现并不能一定保持依赖。同时也不能将多值依赖给分解了。保持依赖需要<span class="label primary">加入分解约束</span>得到3NF，而多值依赖需要<span class="label primary">强化分解条件</span>得到4NF。</p>
+<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><p>为了得到依赖闭包和实现3NF，引入函数依赖理论，属性集的闭包和正则覆盖(canonical cover)。<br>其中正则覆盖值得是与原函数依赖F拥有相同闭包的最小函数依赖集。<br>具体定义：<br><img src="canonical-cover.jpg" alt="正则覆盖"></p>
+<p>BCNF的实现：<br><img src="BCNF-algorithm.jpg" alt="BCNF的实现"></p>
+<h3 id="其他范式"><a href="#其他范式" class="headerlink" title="其他范式"></a>其他范式</h3><h4 id="定义：-2"><a href="#定义：-2" class="headerlink" title="定义："></a>定义：</h4><p>3NF：<br><img src="3NF.jpg" alt="3NF"></p>
+<p>4NF:<br>A relation schema r(R) is in fourth normal form (4NF) with respect to a set D of functional and multivalued dependencies if, for all multivalued dependencies in D+ of the form  →→ , where  ⊆ R and  ⊆ R, at least one of the following holds:</p>
+<ul>
+<li> →→  is a trivial multivalued dependency.</li>
+<li> is a superkey for R.</li>
+</ul>
+<h4 id="实现：-1"><a href="#实现：-1" class="headerlink" title="实现："></a>实现：</h4><p>3NF：<br><img src="3NF-algorithm.jpg" alt="3NF-al"></p>
+<p>4NF：实现基本同BCNF。</p>
+<hr>
+
+<p>后面的每个范式没有具体讲了，因为觉得在好的关系设计中将主要的设计问题需要考虑的已经说清楚了。<br>具体的参见课本。</p>
+<div class="note primary"><p>参考文章：<br>《数据库系统概念（第六版）》<br><a href="https://cnbin.github.io/blog/2015/12/12/sql-di--fan-shi-,-di-er-fan-shi-,-di-san-fan-shi-bcnf/" target="_blank" rel="noopener">SQL 第一范式、第二范式、第三范式、BCNF</a><br></p></div>
+
       
     </div>
     
@@ -448,7 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/总结/" rel="tag"># 总结</a>
+            <a href="/tags/范式/" rel="tag"># 范式</a>
           
         </div>
       
@@ -461,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/hexo部署与使用详解/" rel="next" title="hexo部署与使用入门">
-                <i class="fa fa-chevron-left"></i> hexo部署与使用入门
+              <a href="/2018/04/04/hexo-new-customization/" rel="next" title="hexo基于NexT主题订制自己的主题">
+                <i class="fa fa-chevron-left"></i> hexo基于NexT主题订制自己的主题
               </a>
             
           </div>
@@ -470,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/03/NoSQL数据库技术及其应用研究/" rel="prev" title="NoSQL数据库技术及其应用研究">
-                NoSQL数据库技术及其应用研究 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -627,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系数据库"><span class="nav-number">2.</span> <span class="nav-text">关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.1.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务"><span class="nav-number">2.2.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">2.3.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式系统"><span class="nav-number">3.</span> <span class="nav-text">分布式系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献-1"><span class="nav-number">3.1.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式数据库"><span class="nav-number">4.</span> <span class="nav-text">分布式数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TiDB实现"><span class="nav-number">5.</span> <span class="nav-text">TiDB实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#好的关系设计的特点"><span class="nav-number">1.</span> <span class="nav-text">好的关系设计的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#那什么样的表需要分解呢？"><span class="nav-number">1.1.</span> <span class="nav-text">那什么样的表需要分解呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断分解的好坏呢？"><span class="nav-number">1.2.</span> <span class="nav-text">如何判断分解的好坏呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范式"><span class="nav-number">2.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一范式-1NF"><span class="nav-number">2.1.</span> <span class="nav-text">第一范式 1NF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义："><span class="nav-number">2.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解："><span class="nav-number">2.1.2.</span> <span class="nav-text">理解：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boyce-Codd-范式"><span class="nav-number">2.2.</span> <span class="nav-text">Boyce-Codd 范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义：-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解：-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">理解：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现："><span class="nav-number">2.2.3.</span> <span class="nav-text">实现：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他范式"><span class="nav-number">2.3.</span> <span class="nav-text">其他范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义：-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现：-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">实现：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -772,9 +809,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://karellincoln.github.io/2018/04/03/分布式系统和数据库学习路线/';
-          this.page.identifier = '2018/04/03/分布式系统和数据库学习路线/';
-          this.page.title = '分布式系统和数据库学习路线';
+          this.page.url = 'https://karellincoln.github.io/2018/04/04/normal-form/';
+          this.page.identifier = '2018/04/04/normal-form/';
+          this.page.title = '关系型数据库之范式';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://karellincoln.disqus.com/embed.js';

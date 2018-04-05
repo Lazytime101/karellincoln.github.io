@@ -104,7 +104,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/03/MongoDB存储与查询机制/MongoDB数据模型.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/03/MongoDB存储与查询机制/MongoDB数据库文件结构.jpg">
-<meta property="og:updated_time" content="2018-04-04T08:40:38.270Z">
+<meta property="og:image" content="https://karellincoln.github.io/2018/04/03/MongoDB存储与查询机制/MongoDB分片存储架构.jpg">
+<meta property="og:updated_time" content="2018-04-05T13:14:07.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB存储与查询机制">
 <meta name="twitter:description" content="前言这篇是 NoSQL数据库技术及其应用研究 的下篇，也是主要引用 NoSQL数据库技术及其应用研究 论文。 存储机制与反范式模式设计数据模型 逻辑模型： 一个MongoDB系统由多个数据库组成，每个数据库有一组集合(collection) 组成，每个集合由任意个文档（Document）组成，而每个文档由一系列字段（Field）组成，每个字段是一个键值对（key-value pair），其中key">
@@ -407,6 +408,20 @@
 <p>使用GridFS文件系统规范，提供一种透明的机制将一个大文件分割成为多个较小的块对象（chunk）存储。<strong>这个还没有理解</strong></p>
 <h3 id="存储架构"><a href="#存储架构" class="headerlink" title="存储架构"></a>存储架构</h3><p>分为客户端和服务器，在服务器中运行Mongod提供服务，客户端应用程序通过调用 Driver API， 使用Mongo Wire Protocol通讯协议向mongod提交请求并获得应答。</p>
 <h3 id="反范式模式设计"><a href="#反范式模式设计" class="headerlink" title="反范式模式设计"></a>反范式模式设计</h3><p>关系型数据库的规范化理论提出了1NF, 2NF, 3NF, BCNF, 4NF 的范式概念，基本思想是通过模式分解来逐步消除数据依赖中不合适的部分，使模式中的各关系模式达到某种程度的分离。</p>
+<p>具体的范式知识参考：<a href="/2018/04/04/normal-form">关系型数据库之范式</a></p>
+<p>因为MongoDB允许关系的嵌套和数组元素。意味着MongoDB更喜欢将信息组织在一起，这样在一些场景下增加则信息的聚合度，减少关联操作，同时也是查询变得简单。<br>但是这样意味着可能的增加冗余信息。</p>
+<h2 id="分布式存储机制与应用"><a href="#分布式存储机制与应用" class="headerlink" title="分布式存储机制与应用"></a>分布式存储机制与应用</h2><p>MongoDB采用自动分片的分布式集群实现数据的横向扩展，在集群中使用复制集技术保证数据的可靠性。</p>
+<h3 id="自动分片机制"><a href="#自动分片机制" class="headerlink" title="自动分片机制"></a>自动分片机制</h3><p>MongoDB分片存储体系架构：<br><img src="MongoDB分片存储架构.jpg" alt="MongoDB分片存储体系架构"></p>
+<ol>
+<li><p>分区算法：<br> MongoDB采用<span class="label primary">范围分区</span>， 服务器中的分区配置的元数据使用2PC作为一致性算法。</p>
+</li>
+<li><p>复制集技术：<br> 采用半同步主从复制技术，主节点负责执行写操作和强一致性读操作，从节点负责执行最终一致性读操作，修复节点是指节点正在和主节点进行数据同步，结束之后状态变为从节点。</p>
+<p> 从节点监听主节点oplog的更新；若有新的操作，每一个从节点都复制这些操作到自己的oplog，然后根据记录在自己的数据库上执行这些操作；<br> <div class="note warning"><p>是从节点主动拉取oplog，还是主节点主动发送消息。我觉得是主节点主动合理。</p></div><br> 主节点的重新选举：<br> 机制还是比较简单，不能满足强一致性，只能保证基本没有问题。</p>
+</li>
+<li><p>分片建选择机制：<br> 分区粒度， 写扩展， 查询隔离。</p>
+</li>
+</ol>
+<h2 id="查询机制"><a href="#查询机制" class="headerlink" title="查询机制"></a>查询机制</h2><p>主要讲了MongoDB的查询语法和查询优化。还有自己的一点小小的建议。<br>这不是我关注的重点，以后有机会再补充。</p>
 
       
     </div>
@@ -562,7 +577,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +588,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -584,7 +599,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -632,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储机制与反范式模式设计"><span class="nav-number">2.</span> <span class="nav-text">存储机制与反范式模式设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型"><span class="nav-number">2.1.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储架构"><span class="nav-number">2.2.</span> <span class="nav-text">存储架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反范式模式设计"><span class="nav-number">2.3.</span> <span class="nav-text">反范式模式设计</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储机制与反范式模式设计"><span class="nav-number">2.</span> <span class="nav-text">存储机制与反范式模式设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据模型"><span class="nav-number">2.1.</span> <span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储架构"><span class="nav-number">2.2.</span> <span class="nav-text">存储架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反范式模式设计"><span class="nav-number">2.3.</span> <span class="nav-text">反范式模式设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式存储机制与应用"><span class="nav-number">3.</span> <span class="nav-text">分布式存储机制与应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动分片机制"><span class="nav-number">3.1.</span> <span class="nav-text">自动分片机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询机制"><span class="nav-number">4.</span> <span class="nav-text">查询机制</span></a></li></ol></div>
             
 
           </div>
