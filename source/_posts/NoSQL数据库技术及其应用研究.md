@@ -8,6 +8,8 @@ categories:
 tags:
 ---
 
+<div class="note info"><p>觉得这篇论文的技术含量不高
+但有利于快速的了解一下相关的技术</p></div>
 
 ## 绪论
 
