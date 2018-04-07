@@ -1,12 +1,12 @@
 ---
 title: percolator：在线增量处理系统 中文翻译
-top: 1
+top: 3
 date: 2018-04-05 23:37:33
 categories:
-- 论文翻译
 - 分布式
-tags:
 - 事务
+tags:
+- 论文翻译
 ---
 
 <div class="note info"><p>原文：[Large-scale Incremental Processing Using Distributed Transactions and Notifications](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Peng.pdf)

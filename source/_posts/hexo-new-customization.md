@@ -1,7 +1,7 @@
 ---
 title: hexo基于NexT主题订制自己的主题
 date: 2018-04-04 14:32:30
-top: 2
+top: 3
 categories:
 - Hexo
 tags:

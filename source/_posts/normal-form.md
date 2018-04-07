@@ -1,6 +1,6 @@
 ---
 title: 关系型数据库之范式
-top: 1
+top: 3
 date: 2018-04-04 22:37:10
 categories:
 - 分布式
