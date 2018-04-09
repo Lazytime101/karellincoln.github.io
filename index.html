@@ -441,6 +441,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/09/consensus-raft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="karellincoln">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只小小鸟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/09/consensus-raft/" itemprop="url">consensus-raft</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T10:18:39+08:00">
+                2018-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/分布式/一致性/" itemprop="url" rel="index">
+                    <span itemprop="name">一致性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/09/consensus-raft/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/09/consensus-raft/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div class="note info"><p>翻译参考： <a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="noopener">https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md</a><br>英文原文： <a href="https://raft.github.io/raft.pdf" target="_blank" rel="noopener">In Search of an Understandable Consensus Algorithm</a></p></div>
+
+<div class="note danger no-icon"><p></p></div>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/09/consensus-raft/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://karellincoln.github.io/2018/04/07/consensus-2pc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -555,9 +725,11 @@
 
       
         
-          <div class="note info"><p>文章主要引用自 <a href="http://duanple.blog.163.com/blog/static/70971767201311810939564/" target="_blank" rel="noopener">http://duanple.blog.163.com/blog/static/70971767201311810939564/</a> 他的博客给我提供了很多帮助。感谢！</p></div><br><div class="note primary"><p>在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？<br>现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都达到一致之后才认为这个事件是完成了的。而raft等只要大多数达到一致就可以了，其他不一致的节点可以后面慢慢追上。这使得2pc和raft有了不同的分工</p></div>
+          <div class="note info"><p>文章主要引用自 <a href="http://duanple.blog.163.com/blog/static/70971767201311810939564/" target="_blank" rel="noopener">http://duanple.blog.163.com/blog/static/70971767201311810939564/</a> 他的博客给我提供了很多帮助。感谢！</p></div>
 
-<div class="note danger"><p>下面2pc没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
+<div class="note primary"><p>在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？<br>现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都达到一致之后才认为这个事件是完成了的。而raft等只要大多数达到一致就可以了，其他不一致的节点可以后面慢慢追上。这使得2pc和raft有了不同的分工</p></div>
+
+<div class="note danger no-icon"><p>下面2pc没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/07/consensus-2pc/#more" rel="contents">
@@ -1825,7 +1997,7 @@ Github Pages 是什么 如果你对编程有
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1847,7 +2019,7 @@ Github Pages 是什么 如果你对编程有
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

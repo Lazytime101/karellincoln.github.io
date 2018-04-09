@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都">
+<meta name="description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！  在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统">
 <meta name="keywords" content="论文翻译,2pc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式事务之两阶段提交">
 <meta property="og:url" content="https://karellincoln.github.io/2018/04/07/consensus-2pc/index.html">
 <meta property="og:site_name" content="一只小小鸟">
-<meta property="og:description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都">
+<meta property="og:description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！  在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T13:35:59.128Z">
+<meta property="og:updated_time" content="2018-04-07T15:56:57.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式事务之两阶段提交">
-<meta name="twitter:description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都">
+<meta name="twitter:description" content="文章主要引用自 http://duanple.blog.163.com/blog/static/70971767201311810939564/ 他的博客给我提供了很多帮助。感谢！  在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统">
 
 
 
@@ -394,9 +394,11 @@
       
 
       
-        <div class="note info"><p>文章主要引用自 <a href="http://duanple.blog.163.com/blog/static/70971767201311810939564/" target="_blank" rel="noopener">http://duanple.blog.163.com/blog/static/70971767201311810939564/</a> 他的博客给我提供了很多帮助。感谢！</p></div><br><div class="note primary"><p>在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？<br>现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都达到一致之后才认为这个事件是完成了的。而raft等只要大多数达到一致就可以了，其他不一致的节点可以后面慢慢追上。这使得2pc和raft有了不同的分工</p></div>
+        <div class="note info"><p>文章主要引用自 <a href="http://duanple.blog.163.com/blog/static/70971767201311810939564/" target="_blank" rel="noopener">http://duanple.blog.163.com/blog/static/70971767201311810939564/</a> 他的博客给我提供了很多帮助。感谢！</p></div>
 
-<div class="note danger"><p>下面2pc没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
+<div class="note primary"><p>在看这篇文章之前我一直有一个疑惑，2pc和raft有什么局别(2pc也可以实现一致性，副本的一致性为什么不用2pc)？<br>现在大约有一个答案了：2pc更加注重的是当前的一个事件（不用事务的原因是不一定只能用于事务）在系统中都达到一致之后才认为这个事件是完成了的。而raft等只要大多数达到一致就可以了，其他不一致的节点可以后面慢慢追上。这使得2pc和raft有了不同的分工</p></div>
+
+<div class="note danger no-icon"><p>下面2pc没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
 
 <a id="more"></a>
 <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>事务处理的困难源于两个方面：concurrency和failures。为了达到高的性能，并发是必要的。而在现实中，计算机系统会面临各种各样的故障，操作系统可能会出错，硬件也有可能会出错。当这些错误发生时，应用程序可能会在正执行的过程中被打断，而这可能会产生错误的结果。比如用户正在转账，在中间失败可能会导致一个账户上的钱少了，但是另一个账户却没有收到钱的情况。Recovery就是要避免因故障而产生错误结果。所以就引出了Concurrency Control和Recovery这两个概念。</p>
@@ -501,7 +503,7 @@
 <div class="note warning no-icon"><p>增加锁信息可以加快节点的恢复服务的时间，因为不用等待所以之前未决定的事务的裁决。<br>但我觉得没有什么必要，毕竟故障是小概率事件，而且故障时未裁决的事务数量应该不多。</p></div>
 
 <p>2PC协议和cooperative terminaion protocol的伪码，包括了上面讨论的关于超时处理和DT log相关的处理动作。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2pc algorithm</span></span><br><span class="line"><span class="comment">// // Coordinator's algorithm</span></span><br><span class="line">send VOTE-REQ to all participants;</span><br><span class="line">write start<span class="number">-2</span>PC record in DT <span class="built_in">log</span>;</span><br><span class="line"><span class="function">wait <span class="keyword">for</span> vote <span class="title">messages</span> <span class="params">(yes <span class="keyword">or</span> no)</span> from all participants</span></span><br><span class="line"><span class="function">    on timeout begin</span></span><br><span class="line"><span class="function">        let Py be the processes from which yes was received</span>;</span><br><span class="line">        write <span class="built_in">abort</span> record in DT <span class="built_in">log</span>;</span><br><span class="line">        send ABORT to all processes in Py;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    end;</span><br><span class="line">    <span class="keyword">if</span> all votes were yes <span class="keyword">and</span> Coordinator votes yes then begin</span><br><span class="line">        write commit record in DT <span class="built_in">log</span>;</span><br><span class="line">        send COMMIT to all participants;</span><br><span class="line">    end;</span><br><span class="line">    <span class="keyword">else</span> begin</span><br><span class="line">        let Py be the processes from which yes was received;</span><br><span class="line">        write <span class="built_in">abort</span> record in DT <span class="built_in">log</span>;</span><br><span class="line">        send ABORT to all processes in Py;</span><br><span class="line">    end;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="comment">// // Participant's algorithm</span></span><br><span class="line">wait <span class="keyword">for</span> VOTE-REQ from coordinator</span><br><span class="line">    on timeout begin</span><br><span class="line">        write <span class="built_in">abort</span> record in DT <span class="built_in">log</span>;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    end;</span><br><span class="line">    <span class="keyword">if</span> participant votes yes then begin</span><br><span class="line">        write a yes record in DT <span class="built_in">log</span>;</span><br><span class="line">        send YES to coordinator;</span><br><span class="line">        <span class="function">wait <span class="keyword">for</span> decision <span class="title">message</span> <span class="params">(COMMIT <span class="keyword">or</span> ABORT)</span> from coordinator</span></span><br><span class="line"><span class="function">            on timeout initiate termination protocol</span></span><br><span class="line"><span class="function">            <span class="keyword">if</span> decision message is COMMIT then write commit record in DT <span class="built_in">log</span></span></span><br><span class="line"><span class="function">            <span class="keyword">else</span> write <span class="built_in">abort</span> record in DT <span class="built_in">log</span></span></span><br><span class="line"><span class="function">    end</span></span><br><span class="line"><span class="function">    <span class="keyword">else</span> <span class="comment">/* participant's vote is No */</span> begin</span></span><br><span class="line"><span class="function">        write <span class="built_in">abort</span> record in DT <span class="built_in">log</span></span>;</span><br><span class="line">        <span class="built_in">set</span> NO to coordinator;</span><br><span class="line">    end;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// termination protocol.</span></span><br><span class="line"><span class="comment">// // Initiator's algorithm</span></span><br><span class="line">start: send DECISION-REQ to all processes:</span><br><span class="line">    wait <span class="keyword">for</span> decision message from any processes</span><br><span class="line">        on timeout <span class="keyword">goto</span> start; <span class="comment">/*blocked*/</span></span><br><span class="line">    <span class="keyword">if</span> decision message is COMMIT then</span><br><span class="line">        write commit record in DT <span class="built_in">log</span></span><br><span class="line">    <span class="keyword">else</span> <span class="comment">/*decision message is ABORT */</span></span><br><span class="line">        write <span class="built_in">abort</span> record in DT <span class="built_in">log</span>;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="comment">// // Responder's algorithm</span></span><br><span class="line">wait <span class="keyword">for</span> DECISION-REQ from any processe p;</span><br><span class="line"><span class="keyword">if</span> responder has <span class="keyword">not</span> voted yes <span class="keyword">or</span> has decided to <span class="built_in">abort</span> then</span><br><span class="line">    send ABORT to p</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> responder has decided to commit then send COMMIT to p</span><br><span class="line"><span class="keyword">else</span> skip;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p>
-<div class="note danger"><p>没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
+<div class="note danger no-icon"><p>没有解决协调者挂掉时，而所有参与者都处于不确定区间时的情况，所有参与者都在等待协调者的恢复，因为参与者不能确定事务的状态。<br>我的想法是在客户端中维持一个与协调者的心跳如果协调者故障，则重新安排协调者，并且重新发送vote-req信息，这些2pc，不过相应的参与者中的代码机制就要改一下了，在超时执行termination protocol之前看看没有有vote-req消息。</p></div>
 
 <h4 id="DT-log-回收"><a href="#DT-log-回收" class="headerlink" title="DT log 回收"></a>DT log 回收</h4><p>也需要对DT log中的那些过期信息进行垃圾回收。在垃圾回收时，有如下两个基本原则需要遵守：<br>GC1：至少要等到RM执行了RM-Commit(T)和RM-Abort(T)之后，节点才能将事务T的相关日志记录从它的DT log中删除。<br>GC2：至少有一个节点在它收到事务T涉及的所有节点都执行了RM-Commit(T)和RM-Abort(T)的消息之前，不会将事务T的相关日志记录从它的DT log中删除。</p>
 <div class="note warning no-icon"><p>GC2 保证AC5，即一个节点从故障中恢复时可以查询到事务的状态。</p></div>
@@ -593,6 +595,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/09/consensus-raft/" rel="prev" title="consensus-raft">
+                consensus-raft <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -675,7 +681,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -697,7 +703,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
