@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm">
+<meta name="description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm  根据Raft的满足特性，将raft分解成领导选举，日志复制，安全性。分别阐述每个部分的内容。同时讲解成员变更，日志压缩和客户端与Leader的交互">
 <meta name="keywords" content="论文翻译,raft">
 <meta property="og:type" content="article">
-<meta property="og:title" content="consensus-raft">
+<meta property="og:title" content="raft 寻找一种易于理解的一致性算法">
 <meta property="og:url" content="https://karellincoln.github.io/2018/04/09/consensus-raft/index.html">
 <meta property="og:site_name" content="一只小小鸟">
-<meta property="og:description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm">
+<meta property="og:description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm  根据Raft的满足特性，将raft分解成领导选举，日志复制，安全性。分别阐述每个部分的内容。同时讲解成员变更，日志压缩和客户端与Leader的交互">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/state-machine.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/summary-of-raft.jpg">
@@ -113,10 +113,10 @@
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/cluster-membership-change.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/timeline-configuration-change.png">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/log-compaction.jpg">
-<meta property="og:updated_time" content="2018-04-09T13:18:14.806Z">
+<meta property="og:updated_time" content="2018-04-11T06:39:22.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="consensus-raft">
-<meta name="twitter:description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm">
+<meta name="twitter:title" content="raft 寻找一种易于理解的一致性算法">
+<meta name="twitter:description" content="翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md英文原文： In Search of an Understandable Consensus Algorithm  根据Raft的满足特性，将raft分解成领导选举，日志复制，安全性。分别阐述每个部分的内容。同时讲解成员变更，日志压缩和客户端与Leader的交互">
 <meta name="twitter:image" content="https://karellincoln.github.io/2018/04/09/consensus-raft/state-machine.jpg">
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <title>consensus-raft | 一只小小鸟</title>
+  <title>raft 寻找一种易于理解的一致性算法 | 一只小小鸟</title>
   
 
 
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">consensus-raft</h1>
+          <h1 class="post-title" itemprop="name headline">raft 寻找一种易于理解的一致性算法</h1>
         
 
         <div class="post-meta">
@@ -408,7 +408,7 @@
       
         <div class="note info"><p>翻译参考： <a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="noopener">https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md</a><br>英文原文： <a href="https://raft.github.io/raft.pdf" target="_blank" rel="noopener">In Search of an Understandable Consensus Algorithm</a></p></div>
 
-<div class="note danger no-icon"><p></p></div>
+<div class="note danger no-icon"><p>根据Raft的满足特性，将raft分解成领导选举，日志复制，安全性。分别阐述每个部分的内容。同时讲解成员变更，日志压缩和客户端与Leader的交互的过程。</p></div>
 
 <a id="more"></a>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Raft 是一种为了<span class="label warning">管理复制日志的一致性算法</span>。它提供了和 Paxos 算法相同的功能和性能，但是它的算法结构和 Paxos 不同，使得 Raft 算法更加容易理解并且更容易构建实际的系统。为了提升可理解性，Raft 将一致性算法分解成了几个关键模块，例如领导人选举、日志复制和安全性。同时它通过实施一个更强的一致性来减少需要考虑的状态的数量。由一个用户研究的结果可以证明，对于学生而言，Raft 算法比 Paxos 算法更加容易学习。Raft 算法还包括一个新的机制来允许集群成员的动态改变，它利用重叠的大多数来保证安全性。</p>
@@ -970,7 +970,7 @@
         var disqus_config = function () {
           this.page.url = 'https://karellincoln.github.io/2018/04/09/consensus-raft/';
           this.page.identifier = '2018/04/09/consensus-raft/';
-          this.page.title = 'consensus-raft';
+          this.page.title = 'raft 寻找一种易于理解的一致性算法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://karellincoln.disqus.com/embed.js';
