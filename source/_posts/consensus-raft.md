@@ -1,5 +1,5 @@
 ---
-title: consensus-raft
+title: raft 寻找一种易于理解的一致性算法
 top: 3
 date: 2018-04-09 10:18:39
 categories:
@@ -13,7 +13,7 @@ tags:
 <div class="note info"><p>翻译参考： https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md 
 英文原文： [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)</p></div>
 
-<div class="note danger no-icon"><p></p></div>
+<div class="note danger no-icon"><p>根据Raft的满足特性，将raft分解成领导选举，日志复制，安全性。分别阐述每个部分的内容。同时讲解成员变更，日志压缩和客户端与Leader的交互的过程。</p></div>
 
 <!-- more -->
 
