@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/11/PingCap-home-exercise/observer-class.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/11/PingCap-home-exercise/observer-timing.jpg">
 <meta property="og:image" content="https://karellincoln.github.io/2018/04/11/PingCap-home-exercise/key-struct.png">
-<meta property="og:updated_time" content="2018-04-11T11:15:04.725Z">
+<meta property="og:updated_time" content="2018-04-11T11:50:17.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PingCap招聘的 home exercise">
 <meta name="twitter:description" content="PingCap招聘的第一个home exercise。">
@@ -379,7 +379,7 @@
 <blockquote>
 <p>其中为了减少gRPC调用，发生变化之后直接先将KV返回给Client。</p>
 </blockquote>
-<p>当client要watch特定key时，先初始化一个ClientObserver并设置key值（这个key也可以存储key tree），后调用Server的attach()函数注册自己要watch的key。<br>需求中要watch的key分为key和key tree。key tree是key的集合，集合发生变化就会收到通知。所以在server发现有key发生变化时除了要通知这个对应的key外还要通知这个key所属的集合。<br>notifyObserver(key, value)实现伪码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> observer in obs:</span><br><span class="line">    observer.key 包含 key：</span><br><span class="line">        observer.doSomething(key, value)</span><br></pre></td></tr></table></figure></p>
+<p>当client要watch特定key时，先初始化一个ClientObserver并设置key值（这个key也可以存储key tree），通过gRPC调用Server的attach()函数注册自己要watch的key。<br>需求中要watch的key分为key和key tree。key tree是key的集合，集合发生变化就会收到通知。所以在server发现有key发生变化时除了要通知这个对应的key外还要通知这个key所属的集合。<br>notifyObserver(key, value)实现伪码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> observer in obs:</span><br><span class="line">    observer.key 包含 key：</span><br><span class="line">        observer.doSomething(key, value) <span class="comment">// 通过gRPC调用client端函数通知对方。</span></span><br></pre></td></tr></table></figure></p>
 <div class="note warning no-icon"><p>现在发生变化时的通知问题已经解决了，现在来思考Server如何知道哪一些key发生了变化呢？分为下面两部分讨论。</p></div>
 
 
@@ -390,10 +390,13 @@
 <p>而且大量的事件会拖累kv数据库的更新，插入等修改数据库的操作。同时也可能导致server负载过重，一直要处理kv触发的事件。</p>
 <h3 id="异步通知模式"><a href="#异步通知模式" class="headerlink" title="异步通知模式"></a>异步通知模式</h3><p>为了解决同步通知模式的一些问题而采用异步通知的模式。</p>
 <p>数据结构设计：<br>在value 中加入modify字段，存储改value是否被修改。<br>在存储是采用目录分层存储，加快Server访问自己要watch的key。<br>结构如下：<br><img src="key-struct.png" alt=""></p>
+<blockquote>
+<p>加入要watch的key tree是 /a 则只需要从 /a 的第一项开始顺序扫描到第一个不是以 /a 开头的key结束就行了</p>
+</blockquote>
 <p>流程设计：</p>
 <ol>
 <li>kv数据库修改或插入一条数据时，将modify位设置为 true。</li>
-<li>Server设置一个合理的及时器，周期性的扫描kv数据库表：<ol>
+<li>Server设置一个合理的计时器，周期性的扫描kv数据库表：<ol>
 <li>遍历obs对象，根据其中存储的key或者key tree。扫描相应的数据的modify位是否为true，如果发生修改则调用obs[i].doSomething(key, value)发出通知。</li>
 </ol>
 </li>
@@ -402,7 +405,7 @@
 <div class="note warning no-icon"><p>上面步骤2.1中没有将查找到的已经修改的数据直接置为false的原因是一个修改的数据可能发出多次通知。为了加快步骤3中将遍历到的modify置为false，可以在步骤2时将访问到的保存下来。那么步骤3就不需要重新遍历了。</p></div>
 
 
-<p>优缺点分析：<br><strong>优点：</strong> 将数据库的修改和通知分开来了，而且由于是Server主导的遍历，可以只扫描配置了要watch的相应的key就行了。层次化的存储也使得如果watch的是key tree的话，只要访问相应的目录下的key-value就行了，具有连续扫描的特点。<br>使得扫描的效率大大提高，最小化Server的负担。</p>
+<p>优缺点分析：<br><strong>优点：</strong> 将数据库的修改和通知分开来了，而且由于是Server主导的遍历，可以只扫描配置了要watch的相应的key就行了。层次化的存储也使得如果watch的是key tree的话，只要访问相应的目录下的key-value就行了，具有连续扫描的特点。使得扫描的效率大大提高，最小化Server的负担。<br>不过有一种可能，如果这个key tree对应的数据十分大而只有一两个修改，那也会做了很多无用功。<span class="label primary">这时候可以思考要不要将modify字段独立出来单独建一个表。</span></p>
 <p><strong>缺点：</strong> 因为是异步的，所以一个key-value的多个修改，只有最后一个修改会在Server遍历它时发出通知，中间的修改将会被忽略。<br>不过这也不一定会产生问题，有时候Client端并不关注中间结果。<br>如果Client端需要监听每一个修改：</p>
 <ol>
 <li>监听该key或key tree是只读的，那么可以通过mvcc保持多个版本，同时modify字段中保持时间戳数据。这样就可以将多个修改都通知给Client了。</li>
