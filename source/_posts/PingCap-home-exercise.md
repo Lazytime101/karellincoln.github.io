@@ -1,5 +1,5 @@
 ---
-title: PingCap招聘的 home exercise
+title: PingCAP招聘的 home exercise
 top: 2
 date: 2018-04-11 14:44:11
 categories:
@@ -37,13 +37,13 @@ KVSubject中没有set函数是因为KVSubject不修改KV数据库。
 ![](observer-timing.jpg)
 > 其中为了减少gRPC调用，发生变化之后直接先将KV返回给Client。
 
-当client要watch特定key时，先初始化一个ClientObserver并设置key值（这个key也可以存储key tree），后调用Server的attach()函数注册自己要watch的key。
+当client要watch特定key时，先初始化一个ClientObserver并设置key值（这个key也可以存储key tree），通过gRPC调用Server的attach()函数注册自己要watch的key。
 需求中要watch的key分为key和key tree。key tree是key的集合，集合发生变化就会收到通知。所以在server发现有key发生变化时除了要通知这个对应的key外还要通知这个key所属的集合。
 notifyObserver(key, value)实现伪码：
 ```c
 for observer in obs:
     observer.key 包含 key：
-        observer.doSomething(key, value)
+        observer.doSomething(key, value) // 通过gRPC调用client端函数通知对方。
 ```
 
 
@@ -70,11 +70,12 @@ for observer in obs:
 在存储是采用目录分层存储，加快Server访问自己要watch的key。
 结构如下：
 ![](key-struct.png)
+> 加入要watch的key tree是 /a 则只需要从 /a 的第一项开始顺序扫描到第一个不是以 /a 开头的key结束就行了
 
 
 流程设计：
 1. kv数据库修改或插入一条数据时，将modify位设置为 true。
-2. Server设置一个合理的及时器，周期性的扫描kv数据库表：
+2. Server设置一个合理的计时器，周期性的扫描kv数据库表：
     1. 遍历obs对象，根据其中存储的key或者key tree。扫描相应的数据的modify位是否为true，如果发生修改则调用obs[i].doSomething(key, value)发出通知。
 3. 完成遍历之后将此次遍历数据中的modify位为true的设置为 false。
 
@@ -82,8 +83,8 @@ for observer in obs:
 
 
 优缺点分析：
-**优点：** 将数据库的修改和通知分开来了，而且由于是Server主导的遍历，可以只扫描配置了要watch的相应的key就行了。层次化的存储也使得如果watch的是key tree的话，只要访问相应的目录下的key-value就行了，具有连续扫描的特点。
-使得扫描的效率大大提高，最小化Server的负担。
+**优点：** 将数据库的修改和通知分开来了，而且由于是Server主导的遍历，可以只扫描配置了要watch的相应的key就行了。层次化的存储也使得如果watch的是key tree的话，只要访问相应的目录下的key-value就行了，具有连续扫描的特点。使得扫描的效率大大提高，最小化Server的负担。
+不过有一种可能，如果这个key tree对应的数据十分大而只有一两个修改，那也会做了很多无用功。{% label primary@这时候可以思考要不要将modify字段独立出来单独建一个表。%}
 
 **缺点：** 因为是异步的，所以一个key-value的多个修改，只有最后一个修改会在Server遍历它时发出通知，中间的修改将会被忽略。
 不过这也不一定会产生问题，有时候Client端并不关注中间结果。

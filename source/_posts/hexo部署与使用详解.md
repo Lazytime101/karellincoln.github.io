@@ -169,3 +169,8 @@ Front-matter 是文件最上方以 `---`分隔的区域，用于指定个别文�
 
 2. [标签插件](https://hexo.io/zh-cn/docs/tag-plugins.html)   
 
+
+## 给Hexo搭建的博客增加百度谷歌搜索引擎验证
+
+在网站中添加html验证文件。同时配置sitemap文件方便google搜索。
+具体操作参考：[给Hexo搭建的博客增加百度谷歌搜索引擎验证](http://zhuxin.tech/2017/10/20/%E7%BB%99%20Hexo%20%E6%90%AD%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%AA%8C%E8%AF%81/)

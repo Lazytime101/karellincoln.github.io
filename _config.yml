@@ -11,6 +11,10 @@ author: karellincoln
 language: zh-Hans
 timezone:
 
+# automaticly generate sitemap
+sitemap:
+  path: sitemap.xml
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://karellincoln.github.io
