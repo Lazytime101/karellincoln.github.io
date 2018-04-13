@@ -1968,7 +1968,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9acfde;
+  background: #87546c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3068,8 +3068,6 @@ hr {
 }
 .pagination .page-number.current {
   border-radius: 100%;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-  background-color: rgba(255,255,255,0.35);
 }
 .pagination .prev,
 .pagination .next,
