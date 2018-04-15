@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://karellincoln.github.io/2018/04/15/soft-skills/</loc>
+    
+    <lastmod>2018-04-15T13:17:04.265Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://karellincoln.github.io/2018/03/30/hexo%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2018-04-12T03:23:36.549Z</lastmod>
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/tags/index.html</loc>
+    <loc>https://karellincoln.github.io/categories/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/categories/index.html</loc>
+    <loc>https://karellincoln.github.io/tags/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
