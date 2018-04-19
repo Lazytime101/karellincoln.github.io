@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://karellincoln.github.io/2018/04/11/home-exercise/</loc>
+    <loc>https://karellincoln.github.io/2018/04/05/percolator-translate/</loc>
     
-    <lastmod>2018-04-16T11:37:31.687Z</lastmod>
+    <lastmod>2018-04-19T00:13:46.221Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://karellincoln.github.io/2018/04/15/soft-skills/</loc>
     
-    <lastmod>2018-04-15T13:17:04.265Z</lastmod>
+    <lastmod>2018-04-17T00:11:42.694Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://karellincoln.github.io/2018/04/11/home-exercise/</loc>
+    
+    <lastmod>2018-04-16T11:37:31.687Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://karellincoln.github.io/2018/04/09/consensus-raft/</loc>
     
     <lastmod>2018-04-11T06:39:22.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://karellincoln.github.io/2018/04/05/percolator-translate/</loc>
-    
-    <lastmod>2018-04-09T02:45:49.552Z</lastmod>
     
   </url>
   
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/categories/index.html</loc>
+    <loc>https://karellincoln.github.io/tags/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/tags/index.html</loc>
+    <loc>https://karellincoln.github.io/categories/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
