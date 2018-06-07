@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://karellincoln.github.io/2018/06/07/TiDB-analysis-application/</loc>
+    
+    <lastmod>2018-06-07T10:49:18.511Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://karellincoln.github.io/2018/05/27/go-design-pattern/</loc>
+    
+    <lastmod>2018-05-27T15:30:00.454Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://karellincoln.github.io/2018/04/05/percolator-translate/</loc>
     
     <lastmod>2018-04-19T00:13:46.221Z</lastmod>
@@ -93,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/tags/index.html</loc>
+    <loc>https://karellincoln.github.io/categories/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://karellincoln.github.io/categories/index.html</loc>
+    <loc>https://karellincoln.github.io/tags/index.html</loc>
     
     <lastmod>2018-03-29T16:11:12.663Z</lastmod>
     
