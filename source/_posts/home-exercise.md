@@ -1,5 +1,5 @@
 ---
-title: PingCAP招聘的 home exercise
+title: 招聘的 home exercise
 top: 2
 date: 2018-04-11 14:44:11
 categories:
@@ -7,7 +7,7 @@ tags:
 - 招聘
 ---
 
-<div class="note info"><p>PingCap招聘的第一个home exercise。</p></div>
+<div class="note info"><p>招聘的第一个home exercise。</p></div>
 
 <!-- more -->
 
